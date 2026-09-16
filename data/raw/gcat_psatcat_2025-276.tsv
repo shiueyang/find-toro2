@@ -1,0 +1,125 @@
+#JCAT	Piece	Name	LDate	TLast	TOp	TDate	TF	Program	Plane	Att	Mvr	Class	Category	Result	Control	Discipline	UNState	UNReg	UNPeriod	UNPerigee	UNApogee	UNInc	DispEpoch	DispPeri	DispApo	DispInc	Comment
+S66666    	2025-276A	Formosat-8A	2025 Nov 28 	2025 Nov 28	*	*	-	ROCSAT	-	-	-	C	IMG/SCI	S	-	-	[TW]	-	-	-	-	-	2025 Dec 18 	     563	     568	 97.66 	-
+S66667    	2025-276B	Pelican 5	2025 Nov 28 	2025 Nov 28	*	*	-	Pelican	-	P	M	B	IMG	S	-	-	[US]	-	-	-	-	-	2026 Aug  8 	     460	     464	 97.41 	-
+S66668    	2025-276C	Sari 1	2025 Nov 28 	2025 Nov 28	*	*	-	Saudi Small	-	-	-	C	TECH	S	-	-	[SA]	-	-	-	-	-	2025 Dec 17 	     509	     520	 97.43 	-
+S66669    	2025-276D	Sari 2	2025 Nov 28 	2025 Nov 28	*	*	-	Saudi Small	-	-	-	C	TECH	S	-	-	[SA]	-	-	-	-	-	2025 Dec 17 	     509	     519	 97.43 	-
+S66670    	2025-276E	Hunity	2025 Nov 28 	2025 Nov 28	*	*	-	BUTE	-	-	-	A	TECH	S	-	-	[HU]	-	-	-	-	-	2025 Dec 18 	     509	     519	 97.43 	-
+S66671    	2025-276F	ANISCSAT	2025 Nov 28 	2025 Nov 28	*	*	-	Azerspace	-	-	-	A	TECH	S	-	-	[AZ]	-	-	-	-	-	2025 Dec 18 	     511	     518	 97.44 	-
+S66672    	2025-276G	BRO-17	2025 Nov 28 	2025 Nov 28	*	*	-	Unseen	-	-	-	B	SIG	S	-	-	[F]	-	-	-	-	-	2025 Dec 18 	     512	     519	 97.44 	-
+S66673    	2025-276H	TORO2	2025 Nov 28 	2025 Nov 28	*	*	-	TASA Cube	-	-	-	B	IMG	S	-	-	[TW]	-	-	-	-	-	2025 Dec 18 	     510	     519	 97.44 	-
+S66674    	2025-276J	BRO-20	2025 Nov 28 	2025 Nov 28	*	*	-	Unseen	-	-	-	B	SIG	S	-	-	[F]	-	-	-	-	-	2025 Dec 18 	     512	     519	 97.44 	-
+S66675    	2025-276K	Veery-0G	2025 Nov 28 	2025 Nov 28	*	*	-	CWX	-	-	-	B	MET	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     511	     518	 97.44 	-
+S66676    	2025-276L	HCT-SAT2	2025 Nov 28 	2025 Nov 28	*	*	-	HCT	-	-	-	A	TECH	S	-	-	[UAE]	-	-	-	-	-	2025 Dec 18 	     512	     519	 97.44 	-
+S66677    	2025-276M	AE5RC	2025 Nov 28 	2025 Nov 28	*	*	-	ArkEdge	-	-	-	B	SIG	S	-	-	[J]	-	-	-	-	-	2025 Dec 18 	     511	     516	 97.44 	-
+S66678    	2025-276N	Otter	2025 Nov 28 	2025 Nov 28	*	*	-	DLR Micro	-	-	-	C	COM	S	-	-	[D]	-	-	-	-	-	2025 Dec 18 	     512	     518	 97.44 	-
+S66679    	2025-276P	Lilium 2	2025 Nov 28 	2025 Nov 28	*	*	-	NCKU	-	-	-	A	TECH	S	-	-	[TW]	-	-	-	-	-	2025 Dec 18 	     512	     519	 97.44 	-
+S66680    	2025-276Q	Lemur-2 DeanAndMeave	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     518	 97.44 	-
+S66681    	2025-276R	CTC-1B	2025 Nov 28 	2025 Nov 28	*	*	-	SpaceCoin	-	-	-	B	COM	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     517	 97.43 	-
+S66682    	2025-276S	ION Galactic Giorgius	2025 Nov 28 	2025 Nov 28	*	*	-	DORBIT	-	P	M	B	TECH	S	-	-	[I]	-	-	-	-	-	2026 Aug  7 	     568	     577	 97.53 	-
+S66683    	2025-276T	6GStarLab	2025 Nov 28 	2025 Nov 28	*	*	-	OpenCosmos B	-	-	-	B	COM	S	-	-	[E]	-	-	-	-	-	2025 Dec 18 	     511	     518	 97.45 	-
+S66684    	2025-276U	MICE-1	2025 Nov 28 	2025 Nov 28	*	*	-	Prisma	-	-	-	B	COM	S	-	-	[GR]	-	-	-	-	-	2025 Dec 18 	     511	     517	 97.45 	-
+S66685    	2025-276V	AE5RA	2025 Nov 28 	2025 Nov 28	*	*	-	ArkEdge	-	-	-	B	SIG	S	-	-	[J]	-	-	-	-	-	2025 Dec 18 	     511	     516	 97.44 	-
+S66686    	2025-276W	Lemur-2 Stas-Gorbuk	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     517	 97.45 	-
+S66687    	2025-276X	LEO Express 3	2025 Nov 28 	2025 Nov 28	*	*	-	Impulse	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     521	 97.44 	-
+S66688    	2025-276Y	WISDOM A	2025 Nov 28 	2025 Nov 28	*	*	-	C3S	-	-	-	B	TECH	S	-	-	[HU]	-	-	-	-	-	2025 Dec 18 	     512	     517	 97.44 	-
+S66689    	2025-276Z	AC1-003	2025 Nov 28 	2025 Nov 28	*	*	-	Azalea	-	-	-	B	SIG/IMG	S	-	-	UK	ST/SG/SER.E/1319	   94.9 	     518	     523	 97.4 	2025 Dec 18 	     513	     515	 97.44 	-
+S66690    	2025-276AA	SPiN 2	2025 Nov 28 	2025 Nov 28	*	*	-	SPIN	-	-	-	B	TECH	S	-	-	[L]	-	-	-	-	-	2025 Dec 18 	     512	     517	 97.44 	-
+S66691    	2025-276AB	TRYAD 1	2025 Nov 28 	2025 Nov 28	*	*	-	Auburn	-	-	-	A	SCI	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     511	     516	 97.44 	-
+S66692    	2025-276AC	Beatrice Tinsley	2025 Nov 28 	2025 Nov 28	*	*	-	Satelog	1	-	M	B	IMG	S	-	-	[UY]	-	-	-	-	-	2026 Aug  7 	     502	     507	 97.42 	-
+S66693    	2025-276AD	AE5RB	2025 Nov 28 	2025 Nov 28	*	*	-	ArkEdge	-	-	-	B	SIG	S	-	-	[J]	-	-	-	-	-	2025 Dec 18 	     511	     515	 97.44 	-
+S66694    	2025-276AE	YAM-9	2025 Nov 28 	2025 Nov 28	*	*	-	LOFT	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     514	 97.44 	-
+S66695    	2025-276AF	IRIDE-MS1-Eaglet-2-1	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.44 	-
+S66696    	2025-276AG	IRIDE-MS1-Eaglet-2-2	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Dec 18 	     512	     515	 97.44 	-
+S66697    	2025-276AH	IRIDE-MS1-Eaglet-2-3	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Nov 30 	     511	     512	 97.44 	-
+S66698    	2025-276AJ	IRIDE-MS1-Eaglet-2-4	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Dec 18 	     512	     515	 97.44 	-
+S66699    	2025-276AK	IRIDE-MS1-Eaglet-2-5	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Dec 18 	     511	     516	 97.44 	-
+S66700    	2025-276AL	IRIDE-MS1-Eaglet-2-6	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66701    	2025-276AM	IRIDE-MS1-Eaglet-2-7	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Nov 30 	     512	     512	 97.45 	-
+S66702    	2025-276AN	IRIDE-MS1-Eaglet-2-8	2025 Nov 28 	2025 Nov 28	*	*	-	OHBI	-	-	-	B	TECH	S	-	-	[I]	-	-	-	-	-	2025 Nov 30 	     512	     512	 97.45 	-
+S66703    	2025-276AP	Pelican 6	2025 Nov 28 	2025 Nov 28	*	*	-	Pelican	-	P	M	B	IMG	S	-	-	[US]	-	-	-	-	-	2026 Aug  7 	     465	     469	 97.37 	-
+S66704    	2025-276AQ	Flock 4h-1	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     511	     513	 97.44 	-
+S66705    	2025-276AR	Flock 4h-2	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     511	     512	 97.44 	-
+S66706    	2025-276AS	Flock 4h-3	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     511	     515	 97.45 	-
+S66707    	2025-276AT	Flock 4h-4	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     511	     516	 97.44 	-
+S66708    	2025-276AU	Flock 4h-5	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66709    	2025-276AV	Flock 4h-6	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.44 	-
+S66710    	2025-276AW	Flock 4h-7	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.44 	-
+S66711    	2025-276AX	Flock 4h-8	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.45 	-
+S66712    	2025-276AY	Flock 4h-9	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     513	 97.44 	-
+S66713    	2025-276AZ	Flock 4h-10	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     511	     516	 97.44 	-
+S66714    	2025-276BA	Flock 4h-11	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.44 	-
+S66715    	2025-276BB	Flock 4h-12	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66716    	2025-276BC	Flock 4h-13	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66717    	2025-276BD	Flock 4h-14	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     511	 97.44 	-
+S66718    	2025-276BE	Flock 4h-15	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     516	 97.44 	-
+S66719    	2025-276BF	Flock 4h-16	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     513	 97.44 	-
+S66720    	2025-276BG	Flock 4h-17	2025 Nov 28 	2025 Nov 28	2026	2026	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     510	     513	 97.45 	-
+S66721    	2025-276BH	Flock 4h-18	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 17 	     512	     516	 97.44 	-
+S66722    	2025-276BJ	Flock 4h-19	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     509	     512	 97.44 	-
+S66723    	2025-276BK	Flock 4h-20	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     509	     512	 97.44 	-
+S66724    	2025-276BL	Flock 4h-21	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     509	     512	 97.44 	-
+S66725    	2025-276BM	Flock 4h-22	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     514	 97.44 	-
+S66726    	2025-276BN	Flock 4h-23	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.45 	-
+S66727    	2025-276BP	Flock 4h-24	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     516	 97.45 	-
+S66728    	2025-276BQ	Flock 4h-25	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     517	 97.45 	-
+S66729    	2025-276BR	Flock 4h-26	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     517	 97.44 	-
+S66730    	2025-276BS	Flock 4h-27	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     517	 97.44 	-
+S66731    	2025-276BT	Flock 4h-28	2025 Nov 28 	2025 Nov 28	2026	2026	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     517	 97.45 	-
+S66732    	2025-276BU	Flock 4h-29	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     512	     515	 97.44 	-
+S66733    	2025-276BV	Flock 4h-30	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     511	     512	 97.45 	-
+S66734    	2025-276BW	Flock 4h-31	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     511	     513	 97.45 	-
+S66735    	2025-276BX	Flock 4h-32	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     511	     513	 97.45 	-
+S66736    	2025-276BY	Flock 4h-33	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     513	 97.44 	-
+S66737    	2025-276BZ	Flock 4h-34	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     511	     514	 97.45 	-
+S66738    	2025-276CA	Flock 4h-35	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.45 	-
+S66739    	2025-276CB	Flock 4h-16	2025 Nov 28 	2025 Nov 28	*	*	-	Flock-4	2	-	-	B	IMG	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.44 	-
+S66740    	2025-276CC	Yvonne Brill	2025 Nov 28 	2025 Nov 28	*	*	-	Satelog	1	-	M	B	IMG	S	-	-	[UY]	-	-	-	-	-	2026 Aug  7 	     500	     506	 97.42 	-
+S66741    	2025-276CD	Black Kite 1	2025 Nov 28 	2025 Nov 28	*	*	-	TASA Cube	-	-	-	B	COM	S	-	-	[TW]	-	-	-	-	-	2025 Nov 30 	     512	     518	 97.44 	-
+S66742    	2025-276CE	Mercury One	2025 Nov 28 	2025 Nov 28	*	*	-	Proteus	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     511	     513	 97.44 	-
+S66743    	2025-276CF	Melina Furman	2025 Nov 28 	2025 Nov 28	*	*	-	Satelog	1	-	M	B	IMG	S	-	-	[UY]	-	-	-	-	-	2026 Aug  7 	     501	     505	 97.42 	-
+S66744    	2025-276CG	AC1-001	2025 Nov 28 	2025 Nov 28	*	*	-	Azalea	-	-	-	B	SIG/IMG	S	-	-	UK	ST/SG/SER.E/1319	   94.9 	     518	     523	 97.4 	2025 Nov 30 	     511	     514	 97.45 	-
+S66745    	2025-276CH	AC1-002	2025 Nov 28 	2025 Nov 28	*	*	-	Azalea	-	-	-	B	SIG/IMG	S	-	-	UK	ST/SG/SER.E/1319	   94.9 	     518	     523	 97.4 	2025 Nov 30 	     512	     517	 97.45 	-
+S66746    	2025-276CJ	Phasma-Dirac	2025 Nov 28 	2025 Nov 28	*	*	-	Libre	-	-	-	B	SIG	S	-	-	[GR]	-	-	-	-	-	2025 Nov 30 	     512	     517	 97.44 	-
+S66747    	2025-276CK	W-5	2025 Nov 28 	2026 Jan 29	2026 Jan 29	2026 Jan 29 1341?	-	Varda	-	P	M	B	MGRAV	S	-	-	[US]	-	-	-	-	-	2026 Jan 29 	     350	     879	 97.33 	-
+S66748    	2025-276CL	Umbra-11	2025 Nov 28 	2025 Nov 28	*	*	-	Umbra	-	P	-	B	IMG-R	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     513	 97.44 	-
+S66749    	2025-276CM	PIAST-S1	2025 Nov 28 	2025 Nov 28	*	*	-	PIAST	-	-	-	A	IMG	S	-	-	[PL]	-	-	-	-	-	2025 Nov 30 	     511	     514	 97.45 	-
+S66750    	2025-276CN	CTC-1C	2025 Nov 28 	2025 Nov 28	*	*	-	SpaceCoin	-	-	-	B	COM	S	-	-	[US]	-	-	-	-	-	2025 Nov 30 	     512	     517	 97.45 	-
+S66751    	2025-276CP	ICEYE-X58	2025 Nov 28 	2025 Nov 28	*	*	-	ICEYE	-	P	-	B	IMG-R	S	-	-	[FI]	-	-	-	-	-	2025 Nov 30 	     513	     516	 97.44 	-
+S66752    	2025-276CQ	ICEYE-X59	2025 Nov 28 	2025 Nov 28	*	*	-	ICEYE	-	P	-	B	IMG-R	S	-	-	[GR]	-	-	-	-	-	2025 Nov 30 	     512	     513	 97.44 	-
+S66753    	2025-276CR	ICEYE-X60	2025 Nov 28 	2025 Nov 28	*	*	-	ICEYE	-	P	-	B	IMG-R	S	-	-	[GR]	-	-	-	-	-	2025 Nov 30 	     511	     515	 97.45 	-
+S66754    	2025-276CS	ICEYE-X61	2025 Nov 28 	2025 Nov 28	*	*	-	ICEYE	-	P	-	B	IMG-R	S	-	-	[PL]	-	-	-	-	-	2025 Nov 30 	     512	     517	 97.45 	-
+S66755    	2025-276CT	ICEYE-X62	2025 Nov 28 	2025 Nov 28	*	*	-	ICEYE	-	P	-	B	IMG-R	S	-	-	[FI]	-	-	-	-	-	2025 Dec 18 	     512	     513	 97.44 	-
+S66756    	2025-276CU	MAUVE	2025 Nov 28 	2025 Nov 28	*	*	-	Blue Skies	-	-	-	B	AST	S	-	-	[UK]	-	-	-	-	-	2025 Dec 18 	     511	     512	 97.44 	-
+S66757    	2025-276CV	PIAST-S2	2025 Nov 28 	2025 Nov 28	*	*	-	PIAST	-	-	-	A	IMG	S	-	-	[PL]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66758    	2025-276CW	PIAST-M	2025 Nov 28 	2025 Nov 28	*	*	-	PIAST	-	-	-	A	IMG	S	-	-	[PL]	-	-	-	-	-	2025 Dec 18 	     511	     512	 97.44 	-
+S66759    	2025-276CX	Phasma-Lamarr	2025 Nov 28 	2025 Nov 28	*	*	-	Libre	-	-	-	B	SIG	S	-	-	[GR]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66760    	2025-276CY	PW-6U	2025 Nov 28 	2025 Nov 28	*	*	-	SatRev	-	-	-	B	IMG	S	-	-	[PL]	-	-	-	-	-	2025 Dec 18 	     510	     512	 97.44 	-
+S66761    	2025-276CZ	TRYAD 2	2025 Nov 28 	2025 Nov 28	*	*	-	Auburn	-	-	-	A	SCI	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     509	     511	 97.44 	-
+S66762    	2025-276DA	HydroGNSS-1	2025 Nov 28 	2025 Nov 28	*	*	-	ESA Earth	-	-	-	C	EOSCI	S	-	-	[I-ESA]	-	-	-	-	-	2025 Dec 18 	     513	     514	 97.44 	-
+S66763    	2025-276DB	HydroGNSS-2	2025 Nov 28 	2025 Nov 28	*	*	-	ESA Earth	-	-	-	C	EOSCI	S	-	-	[I-ESA]	-	-	-	-	-	2025 Dec 18 	     512	     514	 97.44 	-
+S66764    	2025-276DC	NAHLA	2025 Nov 28 	2025 Nov 28	*	*	-	Aerospacelab	-	-	-	B	IMG	S	-	-	B	ST/SG/SER.E/1316	   95.0 	     503	     503	 97.4 	2025 Dec 18 	     511	     514	 97.44 	-
+S66765    	2025-276DD	WISDOM B	2025 Nov 28 	2025 Nov 28	*	*	-	C3S	-	-	-	B	TECH	S	-	-	[HU]	-	-	-	-	-	2025 Nov 30 	     513	     516	 97.44 	-
+S66766    	2025-276DE	T.Microsat-1	2025 Nov 28 	2025 Nov 28	*	*	-	TASA Cube	-	-	-	B	COM	S	-	-	[TW]	-	-	-	-	-	2025 Nov 30 	     512	     515	 97.44 	-
+S66767    	2025-276DF	Accenture-1	2025 Nov 28 	2025 Nov 28	*	*	-	OpenCosmos UK	-	-	-	B	IMG	S	-	-	UK	ST/SG/SER.E/1330	   95.0 	     525	     535	 97.6 	2025 Dec 18 	     509	     512	 97.44 	-
+S66768    	2025-276DG	Lemur-2 Teodor	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     508	     512	 97.44 	-
+S66769    	2025-276DH	Speqtre	2025 Nov 28 	2025 Nov 28	*	*	-	RAL	-	-	-	C	TECH	S	-	-	[UK]	-	-	-	-	-	2025 Dec 18 	     509	     512	 97.44 	-
+S66770    	2025-276DJ	Lilium 3	2025 Nov 28 	2025 Nov 28	*	*	-	NCKU	-	-	-	A	TECH	S	-	-	[TW]	-	-	-	-	-	2025 Dec 18 	     508	     512	 97.45 	-
+S66771    	2025-276DK	Gyeonggisat-1	2025 Nov 28 	2025 Nov 28	*	*	-	Nara Space	-	-	-	B	IMG	S	-	-	[KR]	-	-	-	-	-	2025 Dec 18 	     508	     512	 97.45 	-
+S66772    	2025-276DL	IHI-SAT-2	2025 Nov 28 	2025 Nov 28	*	*	-	IHI Cube	-	-	-	B	COM	S	-	-	[J]	-	-	-	-	-	2025 Dec 18 	     508	     511	 97.45 	-
+S66773    	2025-276DM	CTC-1A	2025 Nov 28 	2025 Nov 28	*	*	-	SpaceCoin	-	-	-	B	COM	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     508	     512	 97.44 	-
+S66774    	2025-276DN	Ororatech Gena-OT-1	2025 Nov 28 	2025 Nov 28	*	*	-	Orora	-	-	-	B	TECH	S	-	-	[D]	-	-	-	-	-	2025 Dec 18 	     508	     512	 97.44 	-
+S66775    	2025-276DP	PHI-1	2025 Nov 28 	2025 Nov 28	*	*	-	UAE PHI	-	-	-	C	TECH	S	-	-	UAE	ST/SG/SER.E/1324	   97.0 	     510	     510	 97.6 	2025 Dec 18 	     508	     512	 97.44 	-
+S66776    	2025-276DQ	Lemur-2 Laila	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2025 Dec 18 	     507	     512	 97.44 	-
+S66777    	2025-276DR	Luna-1	2025 Nov 28 	2025 Nov 28	*	*	-	Aselsan	-	-	-	B	COM	S	-	-	[TR]	-	-	-	-	-	2025 Dec 18 	     507	     511	 97.45 	-
+S66778    	2025-276DS	Foresail-1 Prime	2025 Nov 28 	2025 Nov 28	*	*	-	Aalto	-	-	-	A	TECH	S	-	-	[FI]	-	-	-	-	-	2025 Dec 18 	     514	     518	 97.44 	-
+S66779    	2025-276DT	WISESAT-5	2025 Nov 28 	2025 Nov 28	*	*	-	WiseKey	-	-	-	B	COM	S	-	-	[CH]	-	-	-	-	-	2026 Jan 29 	     510	     516	 97.43 	-
+S66780    	2025-276DU	WISESAT-7	2025 Nov 28 	2025 Nov 28	*	*	-	WiseKey	-	-	-	B	COM	S	-	-	[CH]	-	-	-	-	-	2026 Jan 28 	     510	     514	 97.43 	-
+S66781    	2025-276DV	Lacuna-4	2025 Nov 28 	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2026 Feb 19 	     565	     579	 97.54 	-
+S66782    	2025-276DW	Lemur-2 Finnian	2025 Nov 28 	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2026 Mar 19 	     564	     574	 97.53 	-
+S66783    	2025-276DX	Lemur-2 Starlight	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2026 Mar 19 	     561	     584	 97.53 	-
+S66784    	2025-276DY	Lemur-2 Tartiflette	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2026 Mar 19 	     562	     584	 97.53 	-
+S66785    	2025-276DZ	Lemur-2 Vukasin	2025 Nov 28 	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2026 Mar 19 	     561	     577	 97.53 	-
+S66786    	2025-276EA	Lemur-2 Hotspur-Tom	2025 Nov 28 	2025 Nov 28	*	*	-	Spire	2	-	-	B	COM/MET-RO	S	-	-	[US]	-	-	-	-	-	2026 Mar 19 	     562	     584	 97.53 	-
+S66787    	2025-276EB	Lemur-2 Lacunasat	2025 Nov 28 	2025 Nov 28	*	*	-	Lacuna	-	-	-	B	TECH	S	-	-	[US]	-	-	-	-	-	2026 Mar 24 	     560	     578	 97.53 	-
+S66788    	2025-276EC	WISESAT-6	2025 Nov 28 	2025 Nov 28	*	*	-	WiseKey	-	-	-	B	COM	S	-	-	[CH]	-	-	-	-	-	2026 Apr 22 	     500	     506	 97.43 	-
+S67483    	2025-276ED	ION Stellar Stephanus	2025 Nov 28 	2025 Nov 28	*	*	-	DORBIT	-	P	M	B	TECH	S	-	-	[I]	-	-	-	-	-	2026 Aug  7 	     567	     579	 97.52 	-
