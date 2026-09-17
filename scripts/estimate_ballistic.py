@@ -180,14 +180,16 @@ def main():
     ap.add_argument("--mass", type=float, default=TORO2["mass"])
     ap.add_argument("--body", type=float, nargs=3, default=TORO2["body"], metavar=("X", "Y", "Z"), help="本體尺寸 m")
     ap.add_argument("--panel-faces", type=float, default=TORO2["panel_faces_m2"], help="展開帆板單面總面積 m²（未展開給 0）")
+    ap.add_argument("--hist", default=None, help="自訂歷史 TLE 檔（預設 data/raw/spacetrack_gp_history_<intdes>.tle）")
+    ap.add_argument("--tag", default="", help="輸出檔名後綴（例 _long）")
     a = ap.parse_args()
     TORO2.update(label=a.label, mass=a.mass, body=tuple(a.body), panel_faces_m2=a.panel_faces)
     intdes = a.intdes
-    suffix = "" if intdes == INTDES and a.target is None else f"_{intdes}" + (f"_{a.target}" if a.target else "")
+    suffix = ("" if intdes == INTDES and a.target is None else f"_{intdes}" + (f"_{a.target}" if a.target else "")) + a.tag
     T1, T2 = (dt.datetime.fromisoformat(x) for x in (a.t1, a.t2))
     jd1 = sum(jday(T1.year, T1.month, T1.day, 0, 0, 0)); jd2 = sum(jday(T2.year, T2.month, T2.day, 0, 0, 0))
 
-    hist = load_history(os.path.join(RAW, f"spacetrack_gp_history_{intdes}.tle"))
+    hist = load_history(a.hist or os.path.join(RAW, f"spacetrack_gp_history_{intdes}.tle"))
     sw = load_sw(os.path.join(RAW, "celestrak_SW-Last5Years.txt"))
     gcat, cur = load_gcat(intdes), load_current_names(intdes)
     hyp = toro2_hypotheses()

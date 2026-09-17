@@ -200,6 +200,29 @@ Each matches one attitude hypothesis perfectly, so A/m cannot separate them. The
 3. Ask SatNOGS to schedule observations on OBJECT DD, and whether SPiN-2 (98471) signals have ever been Doppler-fitted to DD
    or CJ; if SPiN-2 is one of them, TORO-2 is the other.
 
+### 9.5 CJ was not merged; the long-window A/m shows both DD and CJ changing attitude (2026-09-17)
+
+With element sets for all objects from 2025-12-16 to 2026-04-08 (44,230 sets):
+
+- **No neighbour to merge into**: propagating every object to CJ's last epoch (2026-04-07 04:45 UTC), the nearest is IRIDE FM6 at
+  119 km and 1.0° along-track, with a mean-motion difference of 0.019 rev/day (different altitude); DD is not in the top 15.
+  No unknown object shows a mean-motion jump between 1 and 20 April. CJ is a distinct object that 18 SDS simply lost, not a duplicate of DD.
+- **Long window (2026-01-10 .. 04-05) vs short window (2025-12-19 .. 01-08)**:
+
+| Object | 12-19 .. 01-08 | 01-10 .. 04-05 | Change |
+|--|--|--|--|
+| PHASMA-LAMARR (H) / DIRAC (R) | 0.0210 / 0.0242 | 0.0205 / 0.0229 | −2% / −5% (stable) |
+| AB / CZ (TRYAD pair) | 0.0144 / 0.0147 | 0.0133 / 0.0135 | −8% / −8% |
+| CX, L, AA, CY, DM, CN, WISDOM A, BRO-17, T.MicroSat-1 | — | — | all within ±7% |
+| **DD** | 0.0185 | **0.0153** | **−17%** |
+| **CJ** | 0.0136 | **0.0193** | **+42%** |
+
+Passive objects keep their A/m between the two windows (even the PHASMA twins within 5%); only DD and CJ change, in opposite
+directions: DD drops from near "face into flow" (0.0182) toward "random tumble" (0.0128), CJ rises from "random tumble" to slightly
+above face-on (0.0193 ≈ 1.06× the face-on value; a Cd a little above 2.2 explains it). That is the signature of a spacecraft
+**without attitude control whose rotational state is still evolving**, which is TORO-2's situation, and both values sit in or near
+TORO-2's CAD range [0.0128, 0.0182]. A/m still cannot decide between DD and CJ; DD has a TLE, so DD is tracked first.
+
 ## 8. Ground-station operations (from 2026-09-16: track OBJECT DD first; CJ depends on its Space-Track status)
 
 - Track `results/toro2_candidate_tles.txt` entry 1 (OBJECT H) first; passes in `results/stk/access_R01_*`.
