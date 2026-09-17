@@ -2,45 +2,40 @@
 
 *中文版：[README.zh-TW.md](README.zh-TW.md)*
 
-TORO-2 (Pyras / TASA, 8U CubeSat, ~11 kg) was launched on SpaceX **Transporter-15** on 2025-11-28 18:44 UTC
-(COSPAR 2025-276, Vandenberg SLC-4E, ~510 km SSO). No beacon has been received since separation.
-Working hypothesis: the spacecraft is intact and in orbit, but never powered its beacon on.
-This project asks which of the still-unidentified catalog objects from that launch (`TRANSPORTER-15 OBJECT xx`)
-is TORO-2, so that ground stations can track it blind and attempt to command it.
+TORO-2 (Pyras / TASA, 8U CubeSat, ~11 kg, solar panels deployed) was launched on SpaceX **Transporter-15** on
+2025-11-28 18:44 UTC (COSPAR 2025-276, Vandenberg SLC-4E, ~510 km SSO). No beacon has been received since separation.
+Working hypothesis: the spacecraft is intact and in orbit but never powered its beacon on. This project asks which of the
+still-unidentified catalog objects from that launch (`TRANSPORTER-15 OBJECT xx`) is TORO-2, so that ground stations can
+track it blind and attempt to command it.
 
-## Current conclusion (2026-09-15)
+## Status (2026-09-17)
 
-**Most likely TORO-2: TRANSPORTER-15 OBJECT H, NORAD 66673, COSPAR 2025-276H.**
+> **Correction 2026-09-16.** Our first candidate, OBJECT H (66673), was identified by SatNOGS / Libre Space as
+> **PHASMA-LAMARR** (3U, deployed panels) from RF observations and ikhnos Doppler analysis; OBJECT R (66681) is
+> **PHASMA-DIRAC**. RF evidence overrides orbital-dynamics inference, so H and R are excluded. GCAT's name assignments for this
+> launch proved unreliable (H, R, CX and CJ were all wrong), so the ranking no longer uses GCAT identifications or masses.
+> Details in [docs/method.md §9](docs/method.md); the superseded reasoning is kept in [docs/why_object_h.md](docs/why_object_h.md).
 
-| Evidence | Summary |
-|--|--|
-| Deployment sequence | TORO-2 was the first payload released (19:39:09 UTC). Jonathan McDowell's GCAT lists 2025-276H as TORO2 (flagged as a tentative identification). |
-| Size class | Of the 11 unidentified objects, only H and the three CTC-1 objects (R, DM, CN) are in the 8U/16U class per GCAT; the rest are 1U/3U/6U. |
-| Drag behaviour | H has decayed to ~490 km while attitude-controlled 8U CubeSats from the same launch are still at 500–511 km. Its semi-major-axis decay rate is 2.6× the controlled-8U median. |
+**Current best candidate: TRANSPORTER-15 OBJECT DD, NORAD 66765 (2025-276DD). Alternative: OBJECT CJ, NORAD 66746
+(no element sets since 2026-04-07, status being checked).**
 
-**Independent physical check using the real spacecraft properties** (11 kg, solar panels deployed, panel faces 8U+8U+4U),
-see [docs/method.md §7](docs/method.md): from Space-Track element-set history and orbit-averaged NRLMSISE-00 density
-we derive the area-to-mass ratio of every object on the launch, and compare with TORO-2's deployed CAD model
-(silhouette projection method): random-tumble mean **0.0128 m²/kg**, largest-face-into-flow **0.0182 m²/kg**.
+Evidence, using only quantities independent of any name assignment:
 
-| Object | Derived A/m (m²/kg) | Reading |
+| Group (A/m from Space-Track element-set history + orbit-averaged NRLMSISE-00) | Objects | Plausible payloads |
 |--|--|--|
-| **OBJECT H (66673)** | **0.021** | Panels deployed, large face biased toward ram (flat-plate Cd above 2.2 explains the excess) |
-| OBJECT R (66681) | 0.024 | Slightly above the CAD upper bound; first backup |
-| OBJECT DM / CN | 0.008 / 0.007 | Same as controlled 8U CubeSats (0.005–0.009); would need stowed panels or active control |
+| Low 0.0072–0.0080 m²/kg | CN, DM, CY, AA | CTC-1 ×3 (16U), PW-6U (6U), 3UCubed-A (3U, body-mounted cells) |
+| Mid 0.0094–0.0101 | L, CX | WISDOM B (its twin WISDOM A measures 0.0090), SPiN-2 (3U) |
+| High 0.0136–0.0185 | AB, CZ (a pair), **DD**, **CJ** | TRYAD-1/2 (a pair), **TORO-2**, plus one unknown |
 
-**Method validation**: the same pipeline applied to the lab's own PARUS-6U1 (NORAD 68456, 6U, 7 kg, panels stowed,
-confirmed tumbling from its ADCS beacons) reproduces its A/m to within 5% (theory 0.0079, observed 0.0075).
+TORO-2's deployed CAD model gives a random-tumble A/m of 0.0128 m²/kg and a face-into-flow value of 0.0182. DD (0.0185) matches
+the face-on case (1.02×), CJ (0.0136) the tumbling case (1.06×). A/m cannot separate them; DD has a usable TLE, so it is tracked first.
+The A/m method was validated on the lab's own PARUS-6U1 (known 7 kg 6U, tumbling): theory 0.0079 vs observed 0.0075.
 
-GCAT's 15 kg for TORO2 is a nominal 8U value (MassFlag `?`), and for unidentified objects the GCAT mass follows the
-assigned name, so the A/m check deliberately does not depend on it. The Space-Track phase back-extrapolation (§6)
-has no discriminating power on this data, and OBJECT H's history contains a cross-tagged stretch (2025-12-24 to 12-29)
-that the scripts reject automatically.
+Lesson learned: A/m alone cannot settle identity (H's 0.021 fits a 3U with panels just as well as an 8U). Before proposing a
+candidate, check SatNOGS DB and the community.libre.space launch thread; RF-confirmed identifications are kept in
+[data/identifications.json](data/identifications.json) and excluded automatically.
 
-Backup order if H yields nothing: **OBJECT R (66681)** → OBJECT AB / CZ (66691 / 66761) → OBJECT DM (66773) → OBJECT CN (66750).
-
-Candidate TLEs: [results/toro2_candidate_tles.txt](results/toro2_candidate_tles.txt).
-Full scoring: [results/candidates_ranked.md](results/candidates_ranked.md).
+Candidate TLEs: [results/toro2_candidate_tles.txt](results/toro2_candidate_tles.txt). Scoring: [results/candidates_ranked.md](results/candidates_ranked.md).
 7-day pass schedule for the top candidate (NTUT and TASA ground stations, Taiwan): [results/stk/pass_schedule_R01.md](results/stk/pass_schedule_R01.md).
 
 ## Daily update
@@ -59,9 +54,11 @@ python scripts/fetch_spacetrack_history.py          # element-set history for 20
 python scripts/estimate_ballistic.py                # A/m of every object via decay rate + NRLMSISE-00
 python scripts/analyze_deployment_order.py          # phase back-extrapolation (inconclusive here, kept for reference)
 python scripts/projected_area.py <deployed.stl> --mass 11   # tumbling-average projected area from a CAD mesh
+python scripts/spacetrack_query.py "class/satcat/NORAD_CAT_ID/66746"   # ad-hoc Space-Track query
 ```
 
-`analyze_candidates.py` folds `results/ballistic_estimate.csv` into the score (weight 0.35) when it exists.
+`analyze_candidates.py` folds `results/ballistic_estimate.csv` into the score when it exists and excludes objects listed in
+`data/identifications.json`.
 
 Requirements: Python 3.10+, `pip install -r requirements.txt` (plus `nrlmsise00`, `trimesh` for the optional steps),
 STK 10 running with Connect on TCP 5001 for the pass schedule. FreeCAD 1.1 was used headless to convert STEP to STL.
@@ -70,23 +67,22 @@ STK 10 running with Connect on TCP 5001 for the pass schedule. FreeCAD 1.1 was u
 
 - Celestrak and GCAT data are included in `data/raw/`. GCAT is © Jonathan McDowell, used with attribution.
 - Space-Track element-set history is **not** redistributed here (Space-Track user agreement); fetch it with your own account.
-- Script comments, console output and the generated result files are in Traditional Chinese; the analysis logic is
-  documented in English in [docs/method.md](docs/method.md), and the case for OBJECT H in [docs/why_object_h.md](docs/why_object_h.md).
+- Script comments, console output and the generated result files are in Traditional Chinese; the analysis is documented in
+  English in [docs/method.md](docs/method.md).
 
 ## Layout
 ```
-data/raw/        Celestrak TLE / SATCAT, GCAT catalog slices, space-weather file
-data/processed/  .tce files for STK ImportTLEFile (candidates R01..R11, 8U reference set)
-scripts/         fetch, analysis, STK automation, Space-Track, ballistic and CAD tools
-results/         rankings, candidate TLEs, A/m estimates, STK pass reports (results/stk/)
-docs/            method (EN / zh-TW), evidence summary (EN / zh-TW)
+data/raw/            Celestrak TLE / SATCAT, GCAT catalog slices, space-weather file
+data/processed/      .tce files for STK ImportTLEFile (candidates R01.., 8U reference set)
+data/identifications.json   RF-confirmed identifications (SatNOGS) that override GCAT
+scripts/             fetch, analysis, STK automation, Space-Track, ballistic and CAD tools
+results/             rankings, candidate TLEs, A/m estimates, STK pass reports (results/stk/)
+docs/                method (EN / zh-TW), superseded OBJECT H evidence summary (EN / zh-TW)
 ```
 
-## Status
-- [x] Data collection (Celestrak 2025-276 TLE + SATCAT, GCAT)
-- [x] Candidate ranking (OBJECT H / 66673 on top)
-- [x] STK 10 scenario and NTUT / TASA pass schedules
-- [x] Candidate TLEs delivered
-- [x] Space-Track history: phase method inconclusive; decay-rate / A/m analysis supports H
-- [x] A/m method validated on PARUS-6U1; CAD-based projected area for TORO-2 deployed model
-- [ ] Ground-station tracking result
+## Timeline
+- [x] Data collection, ranking, STK pass schedules, candidate TLEs
+- [x] Space-Track history: phase method inconclusive; decay-rate / A/m analysis
+- [x] A/m method validated on PARUS-6U1; CAD-based projected area for TORO-2
+- [x] 2026-09-16: SatNOGS identifies H = PHASMA-LAMARR, R = PHASMA-DIRAC; candidate changed to DD (alternative CJ)
+- [ ] Space-Track status of CJ and RCS_SIZE check; SatNOGS observations on DD; ground-station result

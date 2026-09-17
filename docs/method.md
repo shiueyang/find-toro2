@@ -148,7 +148,61 @@ Interpretation:
   fading period of any received signal.
 - Stowed panels (≤ 0.0064) or controlled attitude (0.0037) remain excluded; DM / CN at 0.007–0.008 correspond to those cases.
 
-## 8. Ground-station operations
+## 9. Correction (2026-09-16): OBJECT H is not TORO-2
+
+Libre Space / SatNOGS (fredy) replied that **OBJECT H (66673) = PHASMA-LAMARR and OBJECT R (66681) = PHASMA-DIRAC**, both 3U
+CubeSats with deployed panels, identified from SatNOGS Network and third-party RF observations plus ikhnos Doppler analysis
+(community.libre.space PHASMA thread, post 133, 2026-01-28). RF evidence takes precedence over any orbital-dynamics inference.
+
+### 9.1 What went wrong
+
+- **GCAT's name assignments for this launch are unreliable**: H (TORO2), R (CTC-1B), CX (Lamarr) and CJ (Dirac) were all wrong,
+  and GCAT omits 3UCubed-A. Components A and B of the score (§4) rested on that; their weights are now zero.
+- **A/m alone cannot settle identity**: H's 0.021 m²/kg fits "8U, 11 kg, panels deployed, face into flow" just as well as
+  "3U, 5 kg, panels deployed, tumbling". In hindsight, H and R having near-identical A/m (0.021 / 0.024) should have flagged
+  them as a same-design pair, which the PHASMA twins are.
+- Lesson: before proposing a candidate, **check SatNOGS DB (entries for each unknown NORAD, and `norad_follow_id` on the 98xxx
+  temporary entries) and the community.libre.space launch thread**, and exclude RF-confirmed objects. These now live in
+  `data/identifications.json` and the ranking script excludes them automatically.
+
+### 9.2 SatNOGS DB status (2026-09-17)
+
+- Unknown NORADs with a SatNOGS entry mapped to a catalog object: only 66673 and 66681 (PHASMA). The other nine unknowns have no entry.
+- Temporary entries still `follow=None`: TORO-2 (98495), SPIN-2 (98471), TRYAD-1/2 (98514/98472), CTC-1A/B/C (98482/81/80),
+  PW-6U (98513), 3UCUBED-A (98517). WISDOM B has no entry.
+- HCT-SAT2 (98470) follows 66671, which 18 SDS names ANISCSAT-1; one of the two is wrong, so OBJECT L need not be HCT-SAT2.
+- 3UCubed-A is transmitting (437.01 MHz beacon every 60 s, too weak to decode) and has **body-mounted** cells only.
+
+### 9.3 Re-pairing using only name-independent A/m
+
+Ten unknown objects (L, AA, AB, CN, CX, CY, CZ, DD, DM, plus CJ with no TLE since April) against ten unmapped payload names
+(TORO-2, SPiN-2, TRYAD-1, TRYAD-2, CTC-1A/B/C, PW-6U, 3UCubed-A, WISDOM B). Grouping by the §7 A/m values:
+
+| Group | Objects (A/m, m²/kg) | Plausible payloads | Note |
+|--|--|--|--|
+| Low 0.0072–0.0080 | CN, DM, CY, AA | CTC-1 ×3 (16U, 21 kg), PW-6U (6U), 3UCubed-A (3U, body-mounted cells) | DM/CN pair like CTC-1 twins |
+| Mid 0.0094–0.0101 | L, CX | WISDOM B (its twin WISDOM A measures 0.0090), SPiN-2 (3U) | |
+| High 0.0136–0.0185 | **AB, CZ** (0.0144/0.0147, a pair), **DD** (0.0185), **CJ** (0.0136) | TRYAD-1/2 (pair → AB/CZ), **TORO-2**, plus one unknown | 4 objects for 3 names; the extra one can only be SPiN-2 or PW-6U with large deployables |
+
+TORO-2 CAD theory: random tumble 0.0128, face-on 0.0182 (§7.5).
+- **OBJECT DD (66765)**: 0.0185 = 1.02× the face-on value; has a current TLE; at 489 km it is one of the three fastest-decaying
+  objects of the launch (the other two are the PHASMA pair).
+- **OBJECT CJ (66746)**: 0.0136 = 1.06× the tumbling value; but Space-Track has no element set since 2026-04-07 (not re-entry;
+  probably a cross-tag merge or lost track, to be checked).
+
+Each matches one attitude hypothesis perfectly, so A/m cannot separate them. The PARUS-6U1 experience (still tumbling at
+2–10 deg/s after five months) gives random tumbling a slightly higher prior, but DD has a usable TLE and CJ does not, so
+**DD is tracked first**.
+
+### 9.4 Open items
+
+1. Space-Track: last element sets and satcat status of 66746 (`scripts/spacetrack_query.py`) to learn what happened to CJ.
+2. Space-Track satcat `RCS_SIZE`: an 8U with deployed panels (0.33 × 0.5 × 0.45 m envelope) and a 3U with panels may fall in
+   different size classes; calibrate with H/R, the BROs, DD and CJ.
+3. Ask SatNOGS to schedule observations on OBJECT DD, and whether SPiN-2 (98471) signals have ever been Doppler-fitted to DD
+   or CJ; if SPiN-2 is one of them, TORO-2 is the other.
+
+## 8. Ground-station operations (from 2026-09-16: track OBJECT DD first; CJ depends on its Space-Track status)
 
 - Track `results/toro2_candidate_tles.txt` entry 1 (OBJECT H) first; passes in `results/stk/access_R01_*`.
 - H has high drag (n-dot ~1.5e-4 rev/day²); refresh TLEs daily (`fetch_data.py` → `analyze_candidates.py` → `stk_build_scenario.py`).

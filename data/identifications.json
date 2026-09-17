@@ -1,0 +1,22 @@
+{
+  "_comment": "Confirmed identifications of 2025-276 objects from RF observations (SatNOGS Network + ikhnos Doppler analysis). These override GCAT. Objects listed here are excluded as TORO-2 candidates.",
+  "confirmed": [
+    {"norad": 66673, "object": "TRANSPORTER-15 OBJECT H", "name": "PHASMA-LAMARR", "form": "3U, deployed panels",
+     "source": "Libre Space community, PHASMA thread post 133 (2026-01-28) and SatNOGS DB; confirmed to us by fredy 2026-09-16",
+     "url": "https://community.libre.space/t/phasma-mission-phasma-lamarr-phasma-dirac/13976/133"},
+    {"norad": 66681, "object": "TRANSPORTER-15 OBJECT R", "name": "PHASMA-DIRAC", "form": "3U, deployed panels",
+     "source": "same as above",
+     "url": "https://community.libre.space/t/phasma-mission-phasma-lamarr-phasma-dirac/13976/133"}
+  ],
+  "satnogs_follow": {
+    "_comment": "SatNOGS DB temporary-ID entries that point at a catalog object (norad_follow_id), 2026-09-17",
+    "HCT-SAT2": 66671, "FORMOSAT-8A": 66666, "PIAST-S2": 66757, "PIAST-S1": 66749, "PIAST-M": 66758,
+    "GYEONGGISAT-1": 66771, "LILIUM-3": 66770, "LILIUM-2": 66679, "BRO-20": 66674, "BRO-17": 66672,
+    "HYDROGNSS-2": 66763, "HYDROGNSS-1": 66762, "ION SCV-022": 66682, "LUNA-1": 66777, "MERCURY ONE": 66742,
+    "NAHLA": 66764, "PHI-1": 66775, "T.MicroSat-1": 66766, "MICE-1": 66684, "Black Kite-1": 66741
+  },
+  "satnogs_unlinked_payloads": ["TORO-2 (98495)", "SPIN-2 (98471)", "TRYAD-1 (98514)", "TRYAD-2 (98472)",
+    "CTC-1A (98482)", "CTC-1B (98481)", "CTC-1C (98480)", "PW-6U (98513)", "3UCUBED-A (98517)",
+    "6GSTARLAB (98500)", "AC1-001/002/003", "ION SCV-021 (98507)"],
+  "gcat_reliability_note": "GCAT assigned H=TORO2, R=CTC-1B, CX=Phasma-Lamarr, CJ=Phasma-Dirac; H and R are proven wrong by RF, so CX and CJ assignments are void too. GCAT also omits 3UCubed-A and WISDOM B has no SatNOGS entry. GCAT names for the remaining unknowns are treated as unverified."
+}

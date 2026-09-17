@@ -34,6 +34,12 @@ TORO2 = dict(name="TORO-2 (TORO-8U-1)", mass_kg=11.0, form="8U，帆板已展開
 # 權重：A 物理等級（GCAT 的質量是「指派名字」的屬性，對未識別物件有循環論證之嫌，權重調低）、
 #       B GCAT 識別、C B* 相對同級、D 部署時序、E 由歷史根數 + 大氣模型反推的 A/m 是否符合 TORO-2 實際規格
 WEIGHTS = dict(A=0.20, B=0.30, C=0.10, D=0.05, E=0.35)
+# 2026-09-16 更新：SatNOGS/ikhnos 以射頻觀測確認 OBJECT H = PHASMA-LAMARR、OBJECT R = PHASMA-DIRAC，
+# GCAT 對本次發射的指派有多處錯誤（H、R、CX、CJ），因此：
+#   * data/identifications.json 內已確認的物件直接排除
+#   * B（GCAT 識別）與 A（GCAT 質量等級，隨指派名字而來）權重歸零，改以與名字無關的 A/m 為主
+WEIGHTS = dict(A=0.0, B=0.0, C=0.15, D=0.10, E=0.75)
+IDENT_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "identifications.json")
 UNKNOWN_RE = re.compile(r"TRANSPORTER-15 OBJECT|TBA - TO BE ASSIGNED|OBJECT [A-Z]+$")
 # GCAT satcat.tsv 欄位（若檔案缺 #JCAT 標題列時使用）
 GCAT_HEADER = ("JCAT Satcat Launch_Tag Piece Type Name PLName LDate Parent SDate Primary DDate Status Dest Owner State "
@@ -132,7 +138,13 @@ def main():
     ref = [o for o in tles.values() if not o["unknown"] and is_8u_class(o)]
     ref_bstar_med = median([o["bstar"] for o in ref])
     ref_alt_med = median([o["alt_km"] for o in ref])
-    unknowns = [o for o in tles.values() if o["unknown"]]
+    # 射頻觀測已確認身分的物件（非 TORO-2）排除
+    confirmed = {}
+    if os.path.exists(IDENT_FILE):
+        import json
+        confirmed = {c["norad"]: c for c in json.load(open(IDENT_FILE, encoding="utf-8")).get("confirmed", [])}
+    excluded = [o for o in tles.values() if o["unknown"] and o["norad"] in confirmed]
+    unknowns = [o for o in tles.values() if o["unknown"] and o["norad"] not in confirmed]
 
     # --- E：歷史根數反推的 A/m（results/ballistic_estimate.csv，由 estimate_ballistic.py 產生；沒有就不計分）----
     am = {}
@@ -168,6 +180,13 @@ def main():
         lo1, hi1 = 0.8 * TORO2["am_tumbling"], 1.25 * TORO2["am_max"]
         lo2, hi2 = 0.5 * TORO2["am_tumbling"], 1.6 * TORO2["am_max"]
         sE = 0.0 if am_v != am_v else 1.0 if lo1 <= am_v <= hi1 else 0.5 if lo2 <= am_v <= hi2 else 0.0
+        # 雙胞胎懲罰：TORO-2 只有一顆；若另一個未識別物件的 A/m 與它相差 <6%，兩者較可能是同設計的成對衛星
+        # （TRYAD 1/2、CTC-1 A/B/C），E 打六折
+        twins = [p for p in unknowns if p is not o and p["norad"] in am and am_v == am_v
+                 and abs(am[p["norad"]] - am_v) / am_v < 0.06]
+        o["twin_of"] = ",".join(str(p["norad"]) for p in twins)
+        if twins:
+            sE *= 0.6
         o.update(score_A_physical=sA, score_B_gcat=sB, score_C_drag=sC, score_D_sep=sD, score_E_am=sE,
                  bstar_ratio_vs_8U=ratio, sep_dt_s=dtsep, am_est=am.get(o["norad"]), am_ratio_vs_toro2=am_ratio,
                  score=round((W["A"] * sA + W["B"] * sB + W["C"] * sC + W["D"] * sD + W["E"] * sE) / wsum, 3))
@@ -176,7 +195,7 @@ def main():
     # --- CSV ------------------------------------------------------------------------
     cols = ["rank", "norad", "intdes", "name", "gcat_name", "gcat_owner", "mass_kg", "length_m", "diam_m", "span_m",
             "sep_raw", "sep_dt_s", "alt_km", "inc_deg", "raan_deg", "bstar", "bstar_ratio_vs_8U", "ndot", "epoch",
-            "am_est", "am_ratio_vs_toro2",
+            "am_est", "am_ratio_vs_toro2", "twin_of",
             "score_A_physical", "score_B_gcat", "score_C_drag", "score_D_sep", "score_E_am", "score"]
     with open(os.path.join(RES, "candidates_ranked.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
@@ -207,8 +226,9 @@ def main():
           f"產生時間：{now:%Y-%m-%d %H:%M} UTC　TLE 來源：Celestrak（最新歷元 {latest:%Y-%m-%d %H:%M}Z）\n",
           f"目標：{TORO2['name']}，{TORO2['form']}，約 {TORO2['mass_kg']:.0f} kg，"
           f"分離時間 {TORO2['sep_time']:%Y-%m-%d %H:%M:%S} UTC（升空後第一顆分離）。\n",
-          f"Celestrak 上此次發射共 {len(tles)} 個有 TLE 的物件，其中 **{len(unknowns)} 個仍為未識別"
-          f"（TRANSPORTER-15 OBJECT xx）**。\n",
+          f"Celestrak 上此次發射共 {len(tles)} 個有 TLE 的物件，其中 **{len(unknowns) + len(excluded)} 個仍為未識別"
+          f"（TRANSPORTER-15 OBJECT xx）**；已由射頻觀測確認、排除的：" +
+          ("、".join(f"{o['name']} = {confirmed[o['norad']]['name']}" for o in excluded) or "無") + "。\n",
           "## 排名\n",
           f"權重：A 物理等級 {W['A']}、B GCAT 識別 {W['B']}、C B* 相對同級 8U {W['C']}、D 部署時序 {W['D']}、"
           f"E 反推 A/m 落在 CAD 算出的 TORO-2 區間（翻滾平均 {TORO2['am_tumbling']} ~ 大面迎風 {TORO2['am_max']} m²/kg，11 kg）{W['E']}"
@@ -233,16 +253,19 @@ def main():
                   f"{o['alt_km']:.1f} | {o['bstar']:.2e} |")
     md += ["", "## 結論\n",
            f"最可能為 TORO-2 的物件：**{top['name']}（NORAD {top['norad']}，{top['intdes']}）**，總分 {top['score']}。\n",
+           "重要背景（2026-09-16）：SatNOGS / Libre Space 以射頻觀測與 ikhnos Doppler 分析確認 OBJECT H = PHASMA-LAMARR、"
+           "OBJECT R = PHASMA-DIRAC（3U、帆板展開）。先前把 H 當主候選的推論被推翻；GCAT 對本次發射的名字指派（H、R、CX、CJ）已證實不可靠，"
+           "本排名不再使用 GCAT 的識別與質量，只用與名字無關的物理量。",
+           "",
            "理由：",
-           f"1. GCAT（Jonathan McDowell）依 SpaceX 部署時序與早期 TLE 相位，將此物件識別為 TORO2（TASA/PYRAS），"
-           f"且它是本次發射 **第一顆分離** 的酬載（{TORO2['sep_time']:%H:%M:%S} UTC）。",
-           "2. 未識別物件中，GCAT 物理等級屬 8U/16U 級的只有它與 CTC-1 A/B/C（21 kg）；其餘為 1U/3U/6U"
-           "（注意：未識別物件的 GCAT 質量是隨指派名字而來的，非量測值）。",
-           (f"3. 由 Space-Track 歷史根數的衰減率 + NRLMSISE-00 反推，其 A/m ≈ {top['am_est']:.4f} m²/kg；"
+           (f"1. 由 Space-Track 歷史根數的衰減率 + NRLMSISE-00 反推，其 A/m ≈ {top['am_est']:.4f} m²/kg；"
             f"TORO-2 展開態 CAD 的隨機翻滾平均是 {TORO2['am_tumbling']}、大面迎風最大值 {TORO2['am_max']} m²/kg（11 kg），"
-            f"觀測值為翻滾平均的 {top['am_ratio_vs_toro2']:.2f} 倍、接近大面迎風上限（平板 Cd 高於 2.2 可解釋差額）；"
-            "受控的同級 8U 只有 0.005~0.009。這是與名字指派無關的獨立物理證據（方法已用 PARUS-6U1 驗證，誤差 5%）。" if top.get("am_est") else
-            f"3. 它的 B* 為同級 8U 中位數的 {top['bstar_ratio_vs_8U']:.1f} 倍，阻力偏高，符合失控翻滾。"),
+            f"觀測值為翻滾平均的 {top['am_ratio_vs_toro2']:.2f} 倍。方法已用 PARUS-6U1 驗證（誤差 5%）。" if top.get("am_est") else
+            f"1. 它的 B* 為同級 8U 中位數的 {top['bstar_ratio_vs_8U']:.1f} 倍，阻力偏高，符合失控翻滾。"),
+           "2. **A/m 不能單獨定案**：H 的 0.021 同樣符合「3U + 展開帆板、5 kg」，事實證明就是如此。同一 A/m 區間內的其他解釋"
+           "（3U 帶大帆板、6U 帶帆板）必須用射頻觀測或 RCS 排除。",
+           "3. 成對物件的自洽性：AB / CZ（0.0144 / 0.0147）與 DM / CN（0.0077 / 0.0072）各自成對，符合 TRYAD 1/2 與 CTC-1 兩顆的雙胞胎特徵；"
+           "DD（0.0185）與 WISDOM A（0.0090）差 2 倍，不像 WISDOM B，因此 DD 是一個「高 A/m、身分未定」的物件。",
            "",
            "備援順位（若追蹤主候選無回應）：" +
            "、".join(f"{o['name']} ({o['norad']}, GCAT={o.get('gcat_name')}, 總分 {o['score']})" for o in unknowns[1:4]) + "。",

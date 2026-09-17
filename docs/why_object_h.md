@@ -1,4 +1,10 @@
-# Why OBJECT H (NORAD 66673, 2025-276H) is identified as TORO-2
+# Why OBJECT H (NORAD 66673, 2025-276H) was identified as TORO-2 — SUPERSEDED
+
+> **Correction, 2026-09-16.** This conclusion is wrong. SatNOGS / Libre Space identified OBJECT H as **PHASMA-LAMARR** and
+> OBJECT R as **PHASMA-DIRAC** (3U, deployed panels) from RF observations and ikhnos Doppler analysis. The document is kept
+> as a record of the reasoning and of where it failed: the A/m evidence in §4 is equally consistent with a 3U-with-panels,
+> and the GCAT name assignment in §1 turned out to be unreliable for this launch. The current analysis is in
+> [method.md §9](method.md); the present best candidate is OBJECT DD (66765), with OBJECT CJ (66746) as the alternative.
 
 *中文版：[why_object_h.zh-TW.md](why_object_h.zh-TW.md)*
 

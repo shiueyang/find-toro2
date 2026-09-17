@@ -205,7 +205,54 @@ Pyras 提供的精確模型 `00_mass_asm.stp`（Creo 匯出，359 MB）**檔案�
 §6.1 回推相位「偏早」的三個物件（R、DD、H）正好是阻力最大的三個。高阻力物件的漂移率隨時間加快，
 線性回推 20 天會過度修正，把它們推向「太早分離」——這是方法偏差，不是部署順序的證據，再次確認相位法在此資料下不可用。
 
-## 8. 地面站操作建議
+## 9. 2026-09-16 修正：OBJECT H 不是 TORO-2
+
+Libre Space / SatNOGS（fredy）回覆：**OBJECT H (66673) = PHASMA-LAMARR、OBJECT R (66681) = PHASMA-DIRAC**，
+兩顆都是帆板展開的 3U，依據是 SatNOGS Network 與第三方射頻觀測加 ikhnos Doppler 分析
+（community.libre.space PHASMA 討論串第 133 篇，2026-01-28）。這是射頻證據，優先於任何軌道動力學推論。
+
+### 9.1 哪裡錯了
+
+- **GCAT 的名字指派不可信**：H（TORO2）、R（CTC-1B）、CX（Lamarr）、CJ（Dirac）四個都錯，而且 GCAT 漏列 3UCubed-A。
+  §1、§4 的「B GCAT 識別」與「A 物理等級」（質量隨指派名字而來）都是建立在錯誤前提上，權重已歸零。
+- **A/m 無法單獨定案**：H 的 0.021 m²/kg 既符合「8U 11 kg、帆板展開、大面迎風」，也符合「3U 5 kg、帆板展開、翻滾」。
+  事後看，H 與 R 的 A/m 幾乎相同（0.021 / 0.024），本該懷疑它們是同設計的一對——這正是 PHASMA 的雙星。
+- 教訓：提出候選前，**先查 SatNOGS DB（每個未識別 NORAD 的條目、各衛星臨時編號 98xxx 的 `norad_follow_id`）與
+  community.libre.space 的發射討論串**，把射頻已確認的物件排除。現在寫進 `data/identifications.json`，排名腳本自動排除。
+
+### 9.2 SatNOGS DB 現況（2026-09-17）
+
+- 有條目且已對應目錄物件的未識別 NORAD：只有 66673、66681（PHASMA）。其餘 9 個未識別物件沒有任何 SatNOGS 條目。
+- 臨時編號仍 `follow=None`（尚未對應）的酬載：TORO-2 (98495)、SPIN-2 (98471)、TRYAD-1/2 (98514/98472)、CTC-1A/B/C (98482/81/80)、
+  PW-6U (98513)、3UCUBED-A (98517)。WISDOM B 沒有條目。
+- HCT-SAT2 (98470) 對應到 66671——而 18 SDS 把 66671 命名為 ANISCSAT-1，兩者之一有誤；OBJECT L 因此不一定是 HCT-SAT2。
+- 3UCubed-A 有在發射（437.01 MHz 每 60 秒 beacon，訊號太弱無法解碼），設計為**本體貼附式**太陽電池（無展開帆板）。
+
+### 9.3 重新配對：只用與名字無關的 A/m
+
+剩下 10 個未識別物件（L、AA、AB、CN、CX、CY、CZ、DD、DM，加上 4 月起無 TLE 的 CJ）對 10 個未對應的酬載名字
+（TORO-2、SPiN-2、TRYAD-1、TRYAD-2、CTC-1A/B/C、PW-6U、3UCubed-A、WISDOM B）。以 §7 的 A/m 分群：
+
+| 群 | 物件（A/m m²/kg） | 可能的酬載 | 說明 |
+|--|--|--|--|
+| 低 0.0072–0.0080 | CN、DM、CY、AA | CTC-1 ×3（16U, 21 kg）、PW-6U（6U）、3UCubed-A（3U 貼附電池） | DM/CN 成對，符合 CTC-1 雙胞胎 |
+| 中 0.0094–0.0101 | L、CX | WISDOM B（其雙胞胎 WISDOM A 實測 0.0090）、SPiN-2（3U） | |
+| 高 0.0136–0.0185 | **AB、CZ**（0.0144/0.0147，成對）、**DD**（0.0185）、**CJ**（0.0136） | TRYAD-1/2（成對 → AB/CZ）、**TORO-2**、＋一個未知 | 高群 4 個物件對 3 個名字，多出的一個只能是 SPiN-2 或 PW-6U 帶大型展開物 |
+
+TORO-2 的 CAD 理論值：隨機翻滾 0.0128、大面迎風 0.0182（§7.5）。
+- **OBJECT DD (66765)**：0.0185 = 大面迎風值的 1.02 倍；目前有 TLE；高度 489 km（本次發射掉最快的三顆之一，另兩顆就是 PHASMA）。
+- **OBJECT CJ (66746)**：0.0136 = 隨機翻滾值的 1.06 倍；但 Space-Track 自 2026-04-07 起沒有新根數，原因待查（不會是再入，可能是交叉標記合併或失追）。
+
+兩者各自完美對應一種姿態假設，A/m 分不出來。PARUS-6U1 的經驗（5 個月後仍 2~10 deg/s 翻滾）讓「隨機翻滾」的先驗略高，
+但 DD 有可用 TLE、CJ 沒有，所以**實務上先追 DD**。
+
+### 9.4 待辦
+
+1. Space-Track：查 66746 的最後根數與 satcat 狀態（`scripts/spacetrack_query.py`），確認 CJ 是失追還是被合併。
+2. Space-Track satcat 的 `RCS_SIZE`：8U＋展開帆板（包絡 0.33 × 0.5 × 0.45 m）與 3U＋帆板可能落在不同等級，用 H/R、BRO、DD、CJ 校準。
+3. 請 SatNOGS 對 OBJECT DD 排觀測；並請他們確認 SPiN-2 (98471) 的訊號是否曾以 Doppler 對應到 DD 或 CJ——若 SPiN-2 是其中一個，TORO-2 就是另一個。
+
+## 8. 地面站操作建議（2026-09-16 起改追 OBJECT DD，備援 CJ 視 Space-Track 狀態而定）
 
 - 先用 `results/toro2_candidate_tles.txt` 第一組（OBJECT H）追蹤；過境時段見 `results/stk/access_R01_*`。
 - OBJECT H 阻力大、TLE 沿軌誤差累積快，**每天重抓 TLE**（`fetch_data.py` → `analyze_candidates.py` → `stk_build_scenario.py`）。

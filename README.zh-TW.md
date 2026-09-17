@@ -6,34 +6,30 @@ TORO-2（Pyras / TASA，8U CubeSat，約 15 kg）於 2025-11-28 18:44 UTC 搭乘
 Transporter-15 的 **未識別物件（TRANSPORTER-15 OBJECT xx）** 中找出最可能是 TORO-2 的 TLE，
 並在實驗室的 STK 10 中建立場景、計算對 NTUT / TASA 地面站的過境時段，供地面站盲追。
 
-## 目前結論（2026-09-10）
+## 目前結論（2026-09-17 修正）
 
-**最可能是 TORO-2 的物件：TRANSPORTER-15 OBJECT H，NORAD 66673，COSPAR 2025-276H。**
+**2026-09-16 重大修正：先前的主候選 OBJECT H (66673) 已由 SatNOGS / Libre Space 以射頻觀測與 ikhnos Doppler 分析確認為 PHASMA-LAMARR，
+OBJECT R (66681) 為 PHASMA-DIRAC（兩顆都是帆板展開的 3U）。射頻證據優先於軌道動力學推論，H 與 R 排除。**
+GCAT 對本次發射的名字指派多處錯誤（H、R、CX、CJ），排名已不再使用 GCAT 的識別與質量。詳見 [docs/method.zh-TW.md §9](docs/method.zh-TW.md)。
 
-| 依據 | 內容 |
-|--|--|
-| 部署時序 | TORO-2 是本次第一顆分離的酬載（19:39:09 UTC）；GCAT（J. McDowell）依部署時序與早期 TLE 相位把 OBJECT H 識別為 TORO2 |
-| 物理等級 | 11 個未識別物件中只有 H（15 kg, 8U）與 CTC-1 A/B/C（21 kg, 8U）屬 8U 級，其餘是 1U/3U/6U |
-| 阻力行為 | H 高度已掉到 ~491 km（同級受控 8U 在 500~511 km），B* 為同級中位數 2.5 倍 → 符合失控翻滾、姿態未建立的情境 |
+**目前最可能是 TORO-2 的物件：TRANSPORTER-15 OBJECT DD，NORAD 66765（2025-276DD）；替代候選 OBJECT CJ，NORAD 66746（自 2026-04-07 起無新 TLE，狀態待查）。**
 
-**以 Pyras 實際規格（質量約 11 kg、帆板已展開、帆板面 8U+8U+4U）做的獨立物理檢驗**（[docs/method.zh-TW.md §7](docs/method.zh-TW.md)）：
-用 Space-Track 歷史根數的衰減率加 NRLMSISE-00 大氣模型反推面積質量比，並以 CAD 展開態模型（`8u_asm_0312.stp`，輪廓投影法）算 TORO-2 的理論值：隨機翻滾平均 0.0128、大面迎風 0.0182 m²/kg（[docs/method.zh-TW.md §7.5](docs/method.zh-TW.md)）。Pyras 提供的精確模型 `00_mass_asm.stp` 檔案截斷不完整，待補。
+依據（只用與名字無關的物理量）：
 
-| 物件 | 反推 A/m (m²/kg) | 判讀（CAD 展開態：翻滾平均 0.0128、大面迎風 0.0182） |
+| 群（Space-Track 歷史根數 + NRLMSISE-00 反推 A/m） | 物件 | 對應酬載 |
 |--|--|--|
-| **OBJECT H (66673)** | **0.021** | 落在「帆板展開、大面偏向迎風」區間（平板 Cd > 2.2 可解釋差額） |
-| OBJECT R (66681) | 0.024 | 略高於上限，第一備援 |
-| OBJECT DM / CN | 0.008 / 0.007 | 和受控 8U 一樣（0.005~0.009），對應帆板未展或受控，不像失聯的 TORO-2 |
+| 低 0.0072–0.0080 m²/kg | CN、DM、CY、AA | CTC-1 ×3、PW-6U、3UCubed-A（貼附電池） |
+| 中 0.0094–0.0101 | L、CX | WISDOM B、SPiN-2 |
+| 高 0.0136–0.0185 | AB、CZ（成對）、**DD**、**CJ** | TRYAD-1/2（成對）、**TORO-2**、＋一個未知 |
 
-**方法驗算**：用本實驗室狀態已知的 PARUS-6U1（68456，6U、7 kg、帆板未展、確定在翻滾）跑同一套演算法，理論 0.0079 對反推 0.0075 m²/kg，誤差 5%（[docs/method.zh-TW.md §7.4](docs/method.zh-TW.md)）。
+TORO-2 展開態 CAD 的理論 A/m：隨機翻滾 0.0128、大面迎風 0.0182。DD 的 0.0185 對應大面迎風（1.02×），CJ 的 0.0136 對應隨機翻滾（1.06×）。
+A/m 分不出兩者，但 DD 有可用 TLE，實務上先追 DD。方法本身已用實驗室的 PARUS-6U1（狀態已知）驗證，誤差 5%。
 
-GCAT 標示的 15 kg 只是 8U 的標稱值，未識別物件的 GCAT 質量是隨指派名字而來，所以這項 A/m 檢驗刻意不依賴它。
-Space-Track 的相位回推法在此資料下無鑑別力（§6），且 OBJECT H 的歷史裡有一段 2025-12-24~29 的交叉標記壞根數，腳本已自動剔除。
+教訓：A/m 不能單獨定案（H 的 0.021 同樣符合 3U＋帆板）；提出候選前先查 SatNOGS DB 與 community.libre.space 的發射討論串，
+已確認的射頻識別收在 [data/identifications.json](data/identifications.json)，排名腳本自動排除。
 
-備援順位：**OBJECT R (66681)** → OBJECT AB / CZ (66691 / 66761，TRYAD) → OBJECT DM (66773) → OBJECT CN (66750)。（自動評分把 TRYAD 排在 R 之前，因為 R 的 A/m 略超出 CAD 上限；但 R 是唯一另一個高阻力的 8U 級物件，實務上仍建議先追 R。）
-候選 TLE 見 [results/toro2_candidate_tles.txt](results/toro2_candidate_tles.txt)，
-完整評分見 [results/candidates_ranked.md](results/candidates_ranked.md)，
-未來 7 天過境時段見 [results/stk/pass_schedule_R01.md](results/stk/pass_schedule_R01.md)。
+候選 TLE 見 [results/toro2_candidate_tles.txt](results/toro2_candidate_tles.txt)，完整評分見 [results/candidates_ranked.md](results/candidates_ranked.md)，
+過境時段見 [results/stk/pass_schedule_R01.md](results/stk/pass_schedule_R01.md)（重跑 `stk_build_scenario.py` 後 R01 = DD）。
 
 ## 每日更新流程
 
@@ -73,4 +69,5 @@ docs/            方法說明
 - [x] 步驟 3：STK 10 場景 FindTORO2 建立、NTUT / TASA 過境計算
 - [x] 步驟 4：候選 TLE 交付（results/toro2_candidate_tles.txt）
 - [x] 步驟 5：Space-Track 歷史 TLE 驗證（相位回推無鑑別力；衰減率支持 H 為失控 8U，備援改為 R）
-- [ ] 步驟 6：地面站實際追蹤結果回饋
+- [x] 步驟 6：SatNOGS 回覆：H = PHASMA-LAMARR、R = PHASMA-DIRAC，候選改為 DD（備援 CJ）
+- [ ] 步驟 7：Space-Track 查 CJ 狀態與 RCS_SIZE；SatNOGS 對 DD 排觀測；地面站追蹤結果回饋
