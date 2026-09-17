@@ -12,7 +12,7 @@ Transporter-15 的 **未識別物件（TRANSPORTER-15 OBJECT xx）** 中找出�
 OBJECT R (66681) 為 PHASMA-DIRAC（兩顆都是帆板展開的 3U）。射頻證據優先於軌道動力學推論，H 與 R 排除。**
 GCAT 對本次發射的名字指派多處錯誤（H、R、CX、CJ），排名已不再使用 GCAT 的識別與質量。詳見 [docs/method.zh-TW.md §9](docs/method.zh-TW.md)。
 
-**目前最可能是 TORO-2 的物件：TRANSPORTER-15 OBJECT DD，NORAD 66765（2025-276DD）；替代候選 OBJECT CJ，NORAD 66746（自 2026-04-07 起無新 TLE，狀態待查）。**
+**目前最可能是 TORO-2 的物件：TRANSPORTER-15 OBJECT DD，NORAD 66765（2025-276DD）；替代候選 OBJECT CJ，NORAD 66746（18 SDS 自 2026-04-07 起失追，無可用 TLE）。**
 
 依據（只用與名字無關的物理量）：
 

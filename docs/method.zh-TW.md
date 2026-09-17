@@ -241,15 +241,15 @@ Libre Space / SatNOGS（fredy）回覆：**OBJECT H (66673) = PHASMA-LAMARR、OB
 
 TORO-2 的 CAD 理論值：隨機翻滾 0.0128、大面迎風 0.0182（§7.5）。
 - **OBJECT DD (66765)**：0.0185 = 大面迎風值的 1.02 倍；目前有 TLE；高度 489 km（本次發射掉最快的三顆之一，另兩顆就是 PHASMA）。
-- **OBJECT CJ (66746)**：0.0136 = 隨機翻滾值的 1.06 倍；但 Space-Track 自 2026-04-07 起沒有新根數，原因待查（不會是再入，可能是交叉標記合併或失追）。
+- **OBJECT CJ (66746)**：0.0136 = 隨機翻滾值的 1.06 倍；但 18 SDS 自 2026-04-07 起失追（最後根數正常、無衰減紀錄），目前沒有可用 TLE。
 
 兩者各自完美對應一種姿態假設，A/m 分不出來。PARUS-6U1 的經驗（5 個月後仍 2~10 deg/s 翻滾）讓「隨機翻滾」的先驗略高，
 但 DD 有可用 TLE、CJ 沒有，所以**實務上先追 DD**。
 
 ### 9.4 待辦
 
-1. Space-Track：查 66746 的最後根數與 satcat 狀態（`scripts/spacetrack_query.py`），確認 CJ 是失追還是被合併。
-2. Space-Track satcat 的 `RCS_SIZE`：8U＋展開帆板（包絡 0.33 × 0.5 × 0.45 m）與 3U＋帆板可能落在不同等級，用 H/R、BRO、DD、CJ 校準。
+1. ~~Space-Track：查 66746 的最後根數與 satcat 狀態~~ **已查（2026-09-17）**：CJ 的根數到 2026-04-07 04:45 UTC 為止都正常（平均運動 15.2217、B* 約 9e-4、衰減平穩），之後沒有新根數；satcat 無 DECAY 日期。結論：不是再入，是 18 SDS 失追，可能被併入鄰近物件的軌跡。下一步：取 4 月 5~9 日全部物件的根數，算 CJ 與各物件的軌道面 / 相位距離，看是否與某物件（例如 DD）重合。
+2. ~~Space-Track satcat 的 `RCS_SIZE`~~ **已查：無鑑別力**。從 0.25 kg 的 PocketQube 到 16U 全部標 MEDIUM，只有大衛星是 LARGE。
 3. 請 SatNOGS 對 OBJECT DD 排觀測；並請他們確認 SPiN-2 (98471) 的訊號是否曾以 Doppler 對應到 DD 或 CJ——若 SPiN-2 是其中一個，TORO-2 就是另一個。
 
 ## 8. 地面站操作建議（2026-09-16 起改追 OBJECT DD，備援 CJ 視 Space-Track 狀態而定）

@@ -187,8 +187,7 @@ Ten unknown objects (L, AA, AB, CN, CX, CY, CZ, DD, DM, plus CJ with no TLE sinc
 TORO-2 CAD theory: random tumble 0.0128, face-on 0.0182 (§7.5).
 - **OBJECT DD (66765)**: 0.0185 = 1.02× the face-on value; has a current TLE; at 489 km it is one of the three fastest-decaying
   objects of the launch (the other two are the PHASMA pair).
-- **OBJECT CJ (66746)**: 0.0136 = 1.06× the tumbling value; but Space-Track has no element set since 2026-04-07 (not re-entry;
-  probably a cross-tag merge or lost track, to be checked).
+- **OBJECT CJ (66746)**: 0.0136 = 1.06× the tumbling value; but 18 SDS lost track of it after 2026-04-07 (last element sets normal, no decay record), so there is no usable TLE.
 
 Each matches one attitude hypothesis perfectly, so A/m cannot separate them. The PARUS-6U1 experience (still tumbling at
 2–10 deg/s after five months) gives random tumbling a slightly higher prior, but DD has a usable TLE and CJ does not, so
@@ -196,9 +195,8 @@ Each matches one attitude hypothesis perfectly, so A/m cannot separate them. The
 
 ### 9.4 Open items
 
-1. Space-Track: last element sets and satcat status of 66746 (`scripts/spacetrack_query.py`) to learn what happened to CJ.
-2. Space-Track satcat `RCS_SIZE`: an 8U with deployed panels (0.33 × 0.5 × 0.45 m envelope) and a 3U with panels may fall in
-   different size classes; calibrate with H/R, the BROs, DD and CJ.
+1. ~~Space-Track: last element sets and satcat status of 66746~~ **Done (2026-09-17)**: CJ's element sets are normal up to 2026-04-07 04:45 UTC (mean motion 15.2217, B* ≈ 9e-4, steady decay), then nothing; satcat has no DECAY date. So it was not re-entry but a lost track by 18 SDS, possibly merged into a neighbouring object's track. Next: fetch all objects' element sets for 5–9 April and compute CJ's plane/phase distance to each, to see whether it coincides with one (e.g. DD).
+2. ~~Space-Track satcat `RCS_SIZE`~~ **Done: no discriminating power.** Everything from 0.25 kg PocketQubes to 16U is MEDIUM; only large satellites are LARGE.
 3. Ask SatNOGS to schedule observations on OBJECT DD, and whether SPiN-2 (98471) signals have ever been Doppler-fitted to DD
    or CJ; if SPiN-2 is one of them, TORO-2 is the other.
 

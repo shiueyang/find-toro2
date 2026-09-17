@@ -17,7 +17,7 @@ track it blind and attempt to command it.
 > Details in [docs/method.md §9](docs/method.md); the superseded reasoning is kept in [docs/why_object_h.md](docs/why_object_h.md).
 
 **Current best candidate: TRANSPORTER-15 OBJECT DD, NORAD 66765 (2025-276DD). Alternative: OBJECT CJ, NORAD 66746
-(no element sets since 2026-04-07, status being checked).**
+(track lost by 18 SDS after 2026-04-07, no usable TLE).**
 
 Evidence, using only quantities independent of any name assignment:
 
